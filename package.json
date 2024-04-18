@@ -1,5 +1,5 @@
 {
-  "name": "@tech-priest-of-mars/swr-request-generator-win",
+  "name": "@emperorschildren/swr-request-generator-win",
   "version": "4.20.69",
   "type": "module",
   "description": "A tool for generating TypeScript code and interface from swagger by using SWR and axios as client. Forked from https://github.com/teobler/swr-request-generator",
@@ -23,12 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MasterSigmar/swr-request-generator-win.git"
+    "url": "git+https://github.com/EmperorsChildren/swr-request-generator-win.git"
   },
   "author": "MasterSigmar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MasterSigmar/swr-request-generator-win"
+    "url": "https://github.com/EmperorsChildren/swr-request-generator-win"
   },
   "keywords": [
     "swr",
@@ -39,7 +39,7 @@
     "interface",
     "TypeScript"
   ],
-  "homepage": "https://github.com/MasterSigmar/swr-request-generator-win#readme",
+  "homepage": "https://github.com/EmperorsChildren/swr-request-generator-win#readme",
   "devDependencies": {
     "@ts-stack/openapi-spec": "^3.1.5",
     "@types/js-yaml": "^4.0.5",

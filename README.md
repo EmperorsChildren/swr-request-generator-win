@@ -2,13 +2,13 @@
 
 <h1 align="center">SWR Request Generator</h1>
 
-<a href="https://github.com/teobler/swr-request-generator/actions">![build](https://img.shields.io/github/actions/workflow/status/teobler/swr-request-generator/build.yaml)</a>
-<a href="https://github.com/teobler/swr-request-generator/actions">![cov](https://teobler.github.io/swr-request-generator/badges/coverage.svg)</a>
-<a href="https://github.com/teobler/swr-request-generator/blob/main/LICENSE">![license](https://img.shields.io/github/license/teobler/swr-request-generator)</a>
+<a href="https://github.com/EmperorsChildren/swr-request-generator-win/actions">![build](https://img.shields.io/github/actions/workflow/status/EmperorsChildren/swr-request-generator-win/build.yaml)</a>
+<a href="https://github.com/EmperorsChildren/swr-request-generator-win/actions">![cov](https://teobler.github.io/swr-request-generator/badges/coverage.svg)</a>
+<a href="https://github.com/EmperorsChildren/swr-request-generator-win/blob/main/LICENSE">![license](https://img.shields.io/github/license/EmperorsChildren/swr-request-generator-win)</a>
 
 </div>
 
-> This package is a fork from the original [SWR Request Generator](https://github.com/teobler/swr-request-generator) that adds windows support to config path resolving.
+> This package is a fork from the original [SWR Request Generator](https://github.com/EmperorsChildren/swr-request-generator-win) that adds windows support to config path resolving.
 
 ---
 
@@ -47,19 +47,19 @@ And if anyone want to make it happen, it should be super cool 🥳
 ### 🛠 Install
 
 ```bash
-pnpm install -D @tech-priest-of-mars/swr-request-generator-win
+pnpm install -D @emperorschildren/swr-request-generator-win
 ```
 
 or
 
 ```bash
-yarn add -D @tech-priest-of-mars/swr-request-generator-win
+yarn add -D @emperorschildren/swr-request-generator-win
 ```
 
 or
 
 ```bash
-npm install -D @tech-priest-of-mars/swr-request-generator-win
+npm install -D @emperorschildren/swr-request-generator-win
 ```
 
 ### 🔧 Configuration
