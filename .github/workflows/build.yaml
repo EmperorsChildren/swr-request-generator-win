@@ -55,10 +55,10 @@ jobs:
           COV=$(node -p 'require(`./coverage/coverage-summary.json`).total.lines.pct')
           echo "coverage=$COV" >> $GITHUB_OUTPUT
 
-      # - name: Checkout gh-pages
-      #   uses: actions/checkout@v3
-      #   with:
-      #     ref: gh-pages
+      - name: Checkout gh-pages
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
 
       - name: Create Badges
         shell: bash
