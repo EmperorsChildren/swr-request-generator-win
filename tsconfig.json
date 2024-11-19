@@ -17,7 +17,7 @@
     "types": ["vitest/globals"]
   },
   "ts-node": {
-    "esm": true,
+    "esm": true
   },
   "include": ["src/"]
 }

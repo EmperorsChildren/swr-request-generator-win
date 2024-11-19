@@ -1,8 +1,8 @@
 {
-  "name": "@openapi-integration/swr-request-generator",
-  "version": "1.2.2",
+  "name": "@emperorschildren/swr-request-generator-win",
+  "version": "4.20.666",
   "type": "module",
-  "description": "A tool for generating TypeScript code and interface from swagger by using SWR and axios as client.",
+  "description": "A tool for generating TypeScript code and interface from swagger by using SWR and axios as client. Forked from https://github.com/teobler/swr-request-generator",
   "bin": {
     "ts-codegen": "bin/ts-codegen.js"
   },
@@ -23,12 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/teobler/swr-request-generator"
+    "url": "git+https://github.com/EmperorsChildren/swr-request-generator-win.git"
   },
-  "author": "teobler",
+  "author": "EmperorsChildren",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/teobler/swr-request-generator/issues"
+    "url": "https://github.com/EmperorsChildren/swr-request-generator-win"
   },
   "keywords": [
     "swr",
@@ -39,7 +39,7 @@
     "interface",
     "TypeScript"
   ],
-  "homepage": "https://github.com/teobler/swr-request-generator#readme",
+  "homepage": "https://github.com/EmperorsChildren/swr-request-generator-win#readme",
   "devDependencies": {
     "@ts-stack/openapi-spec": "^3.1.5",
     "@types/js-yaml": "^4.0.5",
@@ -67,5 +67,9 @@
   "peerDependencies": {
     "axios": ">=1.1.3",
     "swr": ">=2.0.0"
+  },
+  "main": "index.js",
+  "directories": {
+    "example": "example"
   }
 }

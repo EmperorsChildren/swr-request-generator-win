@@ -2,11 +2,15 @@
 
 <h1 align="center">SWR Request Generator</h1>
 
-<a href="https://github.com/teobler/swr-request-generator/actions">![build](https://img.shields.io/github/actions/workflow/status/teobler/swr-request-generator/build.yaml)</a>
-<a href="https://github.com/teobler/swr-request-generator/actions">![cov](https://teobler.github.io/swr-request-generator/badges/coverage.svg)</a>
-<a href="https://github.com/teobler/swr-request-generator/blob/main/LICENSE">![license](https://img.shields.io/github/license/teobler/swr-request-generator)</a>
+<a href="https://github.com/EmperorsChildren/swr-request-generator-win/actions">![build](https://img.shields.io/github/actions/workflow/status/EmperorsChildren/swr-request-generator-win/build.yaml)</a>
+<a href="https://github.com/EmperorsChildren/swr-request-generator-win/actions">![cov](https://teobler.github.io/swr-request-generator/badges/coverage.svg)</a>
+<a href="https://github.com/EmperorsChildren/swr-request-generator-win/blob/main/LICENSE">![license](https://img.shields.io/github/license/EmperorsChildren/swr-request-generator-win)</a>
 
 </div>
+
+> This package is a fork from the original [SWR Request Generator](https://github.com/EmperorsChildren/swr-request-generator-win) that adds windows support to config path resolving.
+
+---
 
 This tool can generate [SWR](https://swr.vercel.app/) request and related request params and response interface from swagger.
 
@@ -39,25 +43,27 @@ If many requirements in the future for a `fetch` version, maybe I can extend it 
 And if anyone want to make it happen, it should be super cool 🥳
 
 ## 🧰 How to Use
+
 ### 🛠 Install
 
 ```bash
-pnpm install -D @openapi-integration/swr-request-generator
+pnpm install -D @emperorschildren/swr-request-generator-win
 ```
 
 or
 
 ```bash
-yarn add -D @openapi-integration/swr-request-generator
+yarn add -D @emperorschildren/swr-request-generator-win
 ```
 
 or
 
 ```bash
-npm install -D @openapi-integration/swr-request-generator
+npm install -D @emperorschildren/swr-request-generator-win
 ```
 
 ### 🔧 Configuration
+
 #### ☄️ Script
 
 add a npm script to your package.json file:
@@ -94,13 +100,14 @@ create a new json file named `ts-codegen.config.json` in your project root direc
 ```
 
 fields meaning:
- - output(string): output file dir
- - fileName(string): output filename
- - fileHeaders(string[]): strings in this array will be placed in output file beginning
- - clients(string[]): your swagger urls
- - data(string[]): your local swagger json/yaml file path
- - needRequestHook(boolean): if need to generate default request hook(useGetRequest and useMutationRequest)
- - needClient(boolean): if need to generate default request axios client
+
+- output(string): output file dir
+- fileName(string): output filename
+- fileHeaders(string[]): strings in this array will be placed in output file beginning
+- clients(string[]): your swagger urls
+- data(string[]): your local swagger json/yaml file path
+- needRequestHook(boolean): if need to generate default request hook(useGetRequest and useMutationRequest)
+- needClient(boolean): if need to generate default request axios client
 
 #### 🤩 Run It!
 
@@ -109,7 +116,8 @@ fields meaning:
 3. If you can only download the swagger json file, that's fine, just put the json file into your project and fill in your file path in the data field of the config file.
 4. Run `npm run codegen` then you can find output file in your output dir
 
-> if your swagger url need basic auth, just run `npm run codegen -- -a "Basic #basicAuthHeader"`
+> if your swagger url need basic auth, just run `npm run codegen -- -a "Basic #basicAuthHeader"` <br>
+> if you're running on windows, just run `npm run codegen -- -w`
 
 ### 👀 Example
 
@@ -134,6 +142,7 @@ and it's source is `swagger/opanAPI.json`, you can find more info in `ts-codegen
 how to use this file can be found in `src/APP.tsx`.
 
 ### 💁‍ Tip
+
 Wrapper functions in example folder like `useGetRequest` and `useMutationRequest` just one of the implementation.
 
 You can use your own wrapper functions and error types as well, just ensure your function name and error type are aligned with demo, since generated function will use these names.
@@ -143,6 +152,7 @@ You can use your own wrapper functions and error types as well, just ensure your
 Clone this repo, run `pnpm install` to install all dependencies.
 
 Copy this config file to your root dir:
+
 ```json
 {
   "output": "example/src/request",
@@ -167,6 +177,7 @@ Then run `pnpm run start` to generate request file to example folder, modify cod
 And there are some test cases in `__tests__` folder, you can run `pnpm run test` to see the results and help you modify the code.
 
 ## 🗂 Changelog
+
 [changelog](changelog.md)
 
 ## 🤗 Appreciation

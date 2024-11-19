@@ -2,6 +2,9 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: write
+
 jobs:
   build-and-test:
     name: Build and Test
@@ -9,15 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Node v16
+      - name: Install Node LTS v22.11.0
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 22.11.0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7.24.3
+          version: 8.15.6
           run_install: false
 
       - name: Get pnpm store directory
@@ -46,8 +49,8 @@ jobs:
       - name: Test
         run: pnpm run test:cov
 
-#      - name: Update Coverage Badge
-#        uses: we-cli/coverage-badge-action@main
+      #      - name: Update Coverage Badge
+      #        uses: we-cli/coverage-badge-action@main
       - name: Get Coverage Summary
         id: get-summary
         shell: bash
