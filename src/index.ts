@@ -22,19 +22,21 @@ program.option("-a, --authorization <value>", "authorization header value").pars
 
 const codegenConfigPath = path.resolve("ts-codegen.config.json");
 
-const importConfig = (resolvedPath: string) => {
-  if (program.opts().windows) resolvedPath = `file://${resolvedPath}`.replace(/\\/g, "/");
-  return import(resolvedPath, { assert: { type: "json" } });
-};
+const getCodegenConfig = async (): Promise<CodegenConfig> => {
+  if (fs.existsSync(codegenConfigPath)) {
+    if (program.opts().windows) {
+      const windowsPath = `file://${codegenConfigPath}`.replace(/\\/g, "/");
+      return await import(windowsPath, { assert: { type: "json" } })?.then((module) => module.default);
+    }
 
-const getCodegenConfig = async (): Promise<CodegenConfig> =>
-  fs.existsSync(codegenConfigPath)
-    ? await importConfig(codegenConfigPath)?.then((module) => module.default)
-    : {
-        output: ".output",
-        fileHeaders: [],
-        clients: [],
-      };
+    return await import(codegenConfigPath, { assert: { type: "json" } })?.then((module) => module.default);
+  }
+  return {
+    output: ".output",
+    fileHeaders: [],
+    clients: [],
+  };
+};
 
 const codegen = (schema: OasObject | string, writeStream: WriteStream, isMultiFile: boolean, fileIndex: number) => {
   if (typeof schema === "string") {
