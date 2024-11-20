@@ -19,7 +19,7 @@
     "lint": "eslint src",
     "build": "tsup",
     "preversion": "yarn test && yarn lint && yarn build",
-    "release": "release-it"
+    "release": "yarn preversion && release-it"
   },
   "repository": {
     "type": "git",
