@@ -18,7 +18,7 @@
     "test:cov": "vitest run --coverage",
     "lint": "eslint src",
     "build": "tsup",
-    "preversion": "rm -rf ./dist/ yarn test && yarn lint && yarn build",
+    "preversion": "rm -rf ./dist/ && yarn test && yarn lint && yarn build",
     "release": "yarn preversion && release-it",
     "update-all": "npx npm-check-updates -u",
     "dc": "npx depcheck"
