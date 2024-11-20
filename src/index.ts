@@ -14,21 +14,30 @@ import { useMutationRequest } from "./template/useMutationRequest.js";
 import { client } from "./template/client.js";
 import { greenConsole, redConsole } from "./utils/console.js";
 
-program.option(
-  "-w, --windows",
-  "tell the program to resolve paths using Windows filesystem:\nprefixes filepath with file:// and replaces backslashes(\\) with forward slashes (/)",
-);
 program.option("-a, --authorization <value>", "authorization header value").parse(process.argv);
 
 const codegenConfigPath = path.resolve("ts-codegen.config.json");
 
+async function loadJSON(filename: string) {
+  try {
+    const json = await import(filename, {
+      with: { type: "json" },
+    });
+
+    return json.default;
+  } catch (e) {
+    // @ts-expect-error e is type unknown aka ts goes crazy when acceding code prop
+    if (e.code === "ERR_UNSUPPORTED_ESM_URL_SCHEME") {
+      return await loadJSON(`file://${filename}`.replace(/\\/g, "/"));
+    }
+  }
+}
+
 const getCodegenConfig = async (): Promise<CodegenConfig> => {
   if (fs.existsSync(codegenConfigPath)) {
-    let resolvedPath = codegenConfigPath;
-    if (program.opts().windows) {
-      resolvedPath = `file://${codegenConfigPath}`.replace(/\\/g, "/");
-    }
-    return await import(resolvedPath, { assert: { type: "json" } })?.then((module) => module.default);
+    const config = await loadJSON(codegenConfigPath);
+    console.log(config);
+    return config;
   }
   return {
     output: ".output",

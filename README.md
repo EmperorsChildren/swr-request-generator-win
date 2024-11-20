@@ -8,7 +8,7 @@
 
 </div>
 
-> This package is a fork from the original [SWR Request Generator](https://github.com/EmperorsChildren/swr-request-generator-win) that adds windows support to config path resolving.
+> This package is a fork from the original [SWR Request Generator](https://github.com/teobler/swr-request-generator) that adds windows support to config path resolving.
 
 ---
 
@@ -117,7 +117,6 @@ fields meaning:
 4. Run `npm run codegen` then you can find output file in your output dir
 
 > if your swagger url need basic auth, just run `npm run codegen -- -a "Basic #basicAuthHeader"` <br>
-> if you're running on windows, just run `npm run codegen -- -w`
 
 ### 👀 Example
 
@@ -126,13 +125,13 @@ all the details can be found in example folder.
 clone this repo.
 
 ```bash
-cd example && pnpm install
+cd example && yarn install
 ```
 
 after installing all dependencies you can run
 
 ```bash
-pnpm run codegen
+yarn codegen
 ```
 
 then swr request generator will generate api file in `src/request/api.ts`.
@@ -149,7 +148,7 @@ You can use your own wrapper functions and error types as well, just ensure your
 
 ## 💻 Local Development
 
-Clone this repo, run `pnpm install` to install all dependencies.
+Clone this repo, run `yarn install` to install all dependencies.
 
 Copy this config file to your root dir:
 
@@ -172,9 +171,9 @@ Copy this config file to your root dir:
 }
 ```
 
-Then run `pnpm run start` to generate request file to example folder, modify code you want and see the results.
+Then run `yarn start` to generate request file to example folder, modify code you want and see the results.
 
-And there are some test cases in `__tests__` folder, you can run `pnpm run test` to see the results and help you modify the code.
+And there are some test cases in `__tests__` folder, you can run `yarn test` to see the results and help you modify the code.
 
 ## 🗂 Changelog
 
