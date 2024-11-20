@@ -24,12 +24,11 @@ const codegenConfigPath = path.resolve("ts-codegen.config.json");
 
 const getCodegenConfig = async (): Promise<CodegenConfig> => {
   if (fs.existsSync(codegenConfigPath)) {
+    let resolvedPath = codegenConfigPath;
     if (program.opts().windows) {
-      const windowsPath = `file://${codegenConfigPath}`.replace(/\\/g, "/");
-      return await import(windowsPath, { assert: { type: "json" } })?.then((module) => module.default);
+      resolvedPath = `file://${codegenConfigPath}`.replace(/\\/g, "/");
     }
-
-    return await import(codegenConfigPath, { assert: { type: "json" } })?.then((module) => module.default);
+    return await import(resolvedPath, { assert: { type: "json" } })?.then((module) => module.default);
   }
   return {
     output: ".output",
