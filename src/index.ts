@@ -33,18 +33,14 @@ async function loadJSON(filename: string) {
   }
 }
 
-const getCodegenConfig = async (): Promise<CodegenConfig> => {
-  if (fs.existsSync(codegenConfigPath)) {
-    const config = await loadJSON(codegenConfigPath);
-    console.log(config);
-    return config;
-  }
-  return {
-    output: ".output",
-    fileHeaders: [],
-    clients: [],
-  };
-};
+const getCodegenConfig = async (): Promise<CodegenConfig> =>
+  fs.existsSync(codegenConfigPath)
+    ? await loadJSON(codegenConfigPath)
+    : {
+        output: ".output",
+        fileHeaders: [],
+        clients: [],
+      };
 
 const codegen = (schema: OasObject | string, writeStream: WriteStream, isMultiFile: boolean, fileIndex: number) => {
   if (typeof schema === "string") {
