@@ -19,7 +19,7 @@
     "lint": "eslint src",
     "build": "tsup",
     "preversion": "yarn test && yarn lint && yarn build",
-    "release": "bumpp && release-it"
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
@@ -48,7 +48,6 @@
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
     "@vitest/coverage-c8": "^0.28.4",
-    "bumpp": "^8.2.1",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
