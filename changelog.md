@@ -1,6 +1,6 @@
 # changelog
 
-## 4.20.666
+## 4.20.69
 ### fixes
 - adds windows support for resolving config file
 

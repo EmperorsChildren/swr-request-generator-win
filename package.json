@@ -1,6 +1,6 @@
 {
   "name": "@emperorschildren/swr-request-generator-win",
-  "version": "4.20.666",
+  "version": "4.20.69",
   "type": "module",
   "description": "A tool for generating TypeScript code and interface from swagger by using SWR and axios as client. Forked from https://github.com/teobler/swr-request-generator",
   "bin": {
@@ -12,13 +12,13 @@
     "README.md"
   ],
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:cov": "vitest run --coverage",
-    "lint": "eslint src",
-    "build": "tsup",
-    "preversion": "pnpm run test && pnpm run lint && pnpm run build",
+    "start": "npx tsx src/index.ts",
+    "test": "npx vitest run",
+    "test:watch": "npx vitest",
+    "test:cov": "npx vitest run --coverage",
+    "lint": "npx eslint src",
+    "build": "npx tsup",
+    "preversion": "yarn test && yarn lint && yarn build",
     "release": "bumpp && pnpm publish"
   },
   "repository": {

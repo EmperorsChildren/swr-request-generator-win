@@ -21,6 +21,7 @@ dist/
 
 # local dev config
 ts-codegen.config.json
+/.output
 
 # lock files
 *lock*.json
