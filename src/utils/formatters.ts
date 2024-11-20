@@ -114,7 +114,7 @@ export const convertJsonStringToJson = (
 
   try {
     return JSON.parse(str);
-  } catch (e) {
+  } catch {
     output(errorMsg);
     return;
   }

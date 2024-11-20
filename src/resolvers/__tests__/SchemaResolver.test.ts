@@ -108,16 +108,25 @@ describe("# SchemaResolver", () => {
     ${{ type: "string", nullable: true }}                            | ${"string | null"}
     ${{ type: "object", nullable: true }}                            | ${"{[key:string]:any} | null"}
     ${{ type: "object", title: "URLStreamHandler", nullable: true }} | ${"object | null"}
-    ${{ type: "object", properties: {
+    ${{
+  type: "object",
+  properties: {
     authorName: {
       type: "string",
       example: "Tony",
       nullable: true,
     },
-  }, nullable: true, title: "BookDetailVo" }} | ${'{"authorName?":"string | null"} | null'}
-    ${{ type: "object", properties: {
+  },
+  nullable: true,
+  title: "BookDetailVo",
+}} | ${'{"authorName?":"string | null"} | null'}
+    ${{
+  type: "object",
+  properties: {
     authorName: { type: "string", example: "Tony", nullable: true },
-  }, title: "BookDetailVo" }} | ${{ "authorName?": "string | null" }}
+  },
+  title: "BookDetailVo",
+}} | ${{ "authorName?": "string | null" }}
     ${{ type: "string", format: "binary", nullable: true }}          | ${"FormData | null"}
   `("should return null when schema nullable is true", ({ schema, result }) => {
     expect(

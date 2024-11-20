@@ -245,7 +245,9 @@ export class PathResolver {
 
   private getContentType(key: string, operationId?: string) {
     // in openAPI spec, the key of content in requestBody field is content type
-    operationId && Object.assign(this.contentType, { [operationId]: key });
+    if (operationId) {
+      Object.assign(this.contentType, { [operationId]: key });
+    }
   }
 
   private getRequestBodyTypes(operationId?: string, requestBody?: RequestBodyObject | ReferenceObject) {
