@@ -19,7 +19,7 @@
     "lint": "npx eslint src",
     "build": "npx tsup",
     "preversion": "yarn test && yarn lint && yarn build",
-    "release": "bumpp && pnpm publish"
+    "release": "npx bumpp && npx publish"
   },
   "repository": {
     "type": "git",
