@@ -21,3 +21,16 @@ dist/
 
 # local dev config
 ts-codegen.config.json
+
+# lock files
+*lock*.json
+
+# yarn
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+!yarn.lock

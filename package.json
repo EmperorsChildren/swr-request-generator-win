@@ -71,5 +71,6 @@
   "main": "index.js",
   "directories": {
     "example": "example"
-  }
+  },
+  "packageManager": "yarn@4.5.1"
 }
