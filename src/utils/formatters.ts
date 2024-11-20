@@ -1,11 +1,11 @@
 import { camelCase, isEmpty } from "moderndash";
-import prettier from "prettier";
 import { isObject, isValidVariableName } from "./specifications.js";
 import { ENUM_SUFFIX, ERROR_MESSAGES } from "../constants.js";
 import { ReqBody } from "src/types.js";
 import { ResolvedSchema } from "src/resolvers/DefinitionsResolver.js";
 import { redConsole } from "../utils/console.js";
 import { pickBy, trimEnd } from "./lodash.js";
+import synchronizedPrettier from "@prettier/sync";
 
 export const toCapitalCase = (str?: string): string => {
   if (!str) {
@@ -27,7 +27,7 @@ export const arrayToObject = (arr: [string | number] | [] = []) => {
 };
 
 export const prettifyCode = (code: string) =>
-  prettier.format(code, {
+  synchronizedPrettier.format(code, {
     printWidth: 120,
     trailingComma: "all",
     arrowParens: "always",
